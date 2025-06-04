@@ -1,0 +1,1 @@
+# Funções de ligar/desligar, enviar manutenção

@@ -1,0 +1,1 @@
+ # Tela principal com listagem e status das máquinas

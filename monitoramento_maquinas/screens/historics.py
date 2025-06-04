@@ -1,0 +1,1 @@
+# Tela para visualizar detalhes e históricos

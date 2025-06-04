@@ -1,0 +1,1 @@
+# Funções utilitárias (ex.: validação, formatação)

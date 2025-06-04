@@ -1,0 +1,1 @@
+# Model da máquina (id, nome, modelo, etc.)

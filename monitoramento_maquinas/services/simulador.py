@@ -1,0 +1,1 @@
+# Funções para gerar dados de sensores simulados
