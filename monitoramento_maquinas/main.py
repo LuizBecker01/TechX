@@ -9,7 +9,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("TechX Monitoramento")
-        self.geometry("600x400")
+        self.geometry("800x600")
         self.frames = {}
 
         # Cria e guarda as telas no dicionário
@@ -24,7 +24,6 @@ class App(tk.Tk):
     def mostrar_tela(self, nome_tela):
         frame = self.frames[nome_tela]
         frame.tkraise()
-
 
 if __name__ == "__main__":
     app = App()
