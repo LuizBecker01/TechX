@@ -22,7 +22,7 @@ class TelaPrincipal(tk.Frame):
             container,
             text="Bem-vindo ao Monitoramento de Máquinas da TechX,\npor favor efetue o login para continuar",
             font=("Arial", 12),
-            wraplength=400,
+            wraplength=700,
             justify="center"
         )
         rotulo_texto.pack(pady=15)

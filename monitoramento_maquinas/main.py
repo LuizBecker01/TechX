@@ -9,7 +9,8 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("TechX Monitoramento")
-        self.geometry("800x600")
+        self.geometry("300x700")
+        self.config(bg="lightblue")
         self.frames = {}
 
         # Cria e guarda as telas no dicionário
