@@ -1,26 +1,31 @@
-# Arquivo principal para rodar o app
 import tkinter as tk
+from screens.principal import TelaPrincipal
+from screens.login import TelaLogin
+from screens.register import TelaRegister
+from screens.dashboard import TelaDashboard
+from screens.historics import TelaHistorics
 
-janela = tk.Tk()
-janela.geometry("600x400")
+class App(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("TechX Monitoramento")
+        self.geometry("600x400")
+        self.frames = {}
 
-rotulo = tk.Label(janela, text="TechX", font=("Arial", 18, "bold"))
-rotulo.pack(pady=10)
+        # Cria e guarda as telas no dicionário
+        for Tela in (TelaPrincipal, TelaLogin, TelaRegister, TelaDashboard, TelaHistorics):
+            frame = Tela(self, self)
+            self.frames[Tela.__name__] = frame
+            frame.grid(row=0, column=0, sticky="nsew")
 
-rotulo = tk.Label(
-    janela,
-    text="Bem-vindo ao Monitoramento de Máquinas da TechX, por favor efetue o login para continuar",
-    font=("Arial", 12),
-    wraplength=400  # ← ajusta conforme o tamanho da sua janela
-)
-rotulo.pack(pady=15, padx=15)
+        # Mostra a primeira tela
+        self.mostrar_tela("TelaPrincipal")
 
-
-botao_cadastrar = tk.Button(janela, text="Cadasrtrar", font=("Arial", 12))
-botao_cadastrar.pack(side=tk.TOP, pady=10)
-
-botao_entrar = tk.Button(janela, text="Entrar", font=("Arial", 12))
-botao_entrar.pack(side=tk.TOP, pady=10)
+    def mostrar_tela(self, nome_tela):
+        frame = self.frames[nome_tela]
+        frame.tkraise()
 
 
-janela.mainloop()
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
