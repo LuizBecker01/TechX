@@ -9,7 +9,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("TechX Monitoramento")
-        self.geometry("300x700")
+        self.geometry("600x400")
         self.config(bg="lightblue")
         self.frames = {}
 

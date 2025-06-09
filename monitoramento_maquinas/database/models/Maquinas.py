@@ -1,5 +1,4 @@
-# Model da máquina (id, nome, modelo, etc.)
-
+# Model da máquina
 class Maquina:
     def __init__(self, nome: str, modelo: str, ano: int, status: str, localizacao: str) -> None:
         self.nome = nome

@@ -22,7 +22,7 @@ class TelaPrincipal(tk.Frame):
             container,
             text="Bem-vindo ao Monitoramento de Máquinas da TechX,\npor favor efetue o login para continuar",
             font=("Arial", 12),
-            wraplength=700,
+            wraplength=400,
             justify="center"
         )
         rotulo_texto.pack(pady=15)
@@ -42,3 +42,11 @@ class TelaPrincipal(tk.Frame):
             command=lambda: controller.mostrar_tela("TelaLogin")
         )
         botao_login.pack(pady=5)
+
+        botao_sair = tk.Button(
+            container,
+            text="Sair",
+            font=("Arial", 12),
+            command=master.quit
+        )
+        botao_sair.pack(pady=5)
