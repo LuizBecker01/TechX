@@ -4,11 +4,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 from __future__ import annotations
-from typing import List
 
 from models.Usuario import Usuario
-from models.Historico import Historico
-from models.Leitura import Leitura
+# from models.Historico import Historico
+# from models.Leitura import Leitura
 from models.Maquinas import Maquinas
 
 # Base para nossos modelos
@@ -22,4 +21,17 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+def criar_usuario(nome: str, email: str, senha: str) -> Usuario:
+    """Cria um novo usuário."""
+    usuario = Usuario(nome=nome, email=email, senha=senha)
+    session.add(usuario)
+    session.commit()
+    return usuario
+
+def cadastrar_maquina(nome: str, descricao: str) -> Maquinas:
+    """Cadastra uma nova máquina."""
+    maquina = Maquinas(nome=nome, descricao=descricao)
+    session.add(maquina)
+    session.commit()
+    return maquina
         
