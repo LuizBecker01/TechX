@@ -1,6 +1,6 @@
 # Model para histórico de status
 
-from sqlalchemy import Column, String
+from sqlalchemy import Column, Integer, String
 from monitoramento_maquinas.database.db_config import Base
 
 

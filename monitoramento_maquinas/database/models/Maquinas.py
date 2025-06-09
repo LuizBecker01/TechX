@@ -42,7 +42,7 @@ def update_maquina(maquina: Maquina) -> None:
         existing_maquina.ano = maquina.ano
         existing_maquina.status = maquina.status
         existing_maquina.localizacao = maquina.localizacao
-        session.commit()
+        Session.commit()
         
 def delete_maquina(maquina_id: int) -> None:
     """Remove uma máquina do banco de dados pelo ID."""
