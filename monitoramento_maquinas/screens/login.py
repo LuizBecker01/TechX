@@ -6,7 +6,7 @@ class TelaLogin(tk.Frame):
         super().__init__(master)
         tk.Label(self, text="Login", font=("Arial", 16)).pack(pady=20)
 
-        tk.Label(self, text="Usuário:").pack(pady=5)
+        tk.Label(self, text="Email:").pack(pady=5)
         tk.Entry(self).pack(pady=5)
 
         tk.Label(self, text="Senha:").pack(pady=5)

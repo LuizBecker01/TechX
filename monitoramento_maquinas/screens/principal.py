@@ -1,52 +1,22 @@
 import tkinter as tk
 
+COR_PRIMARIA = "#2563eb"
+COR_FUNDO = "#f1f5f9"
+COR_BOTAO = "#38bdf8"
+COR_BOTAO_TXT = "#fff"
+FONTE_TITULO = ("Segoe UI", 20, "bold")
+FONTE_NORMAL = ("Segoe UI", 12)
+
 class TelaPrincipal(tk.Frame):
     def __init__(self, master, controller):
-        super().__init__(master)
+        super().__init__(master, bg=COR_FUNDO)
+        container = tk.Frame(self, bg=COR_FUNDO)
+        container.place(relx=0.5, rely=0.5, anchor="center")
 
-        # Configurar o layout do frame principal (self) usando grid
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_rowconfigure(1, weight=1)
-        self.grid_rowconfigure(2, weight=1)
-        self.grid_columnconfigure(0, weight=1)
+        tk.Label(container, text="Bem-vindo ao TechX", font=FONTE_TITULO, bg=COR_FUNDO, fg=COR_PRIMARIA).pack(pady=(0, 30))
 
-        # Criar um frame interno centralizado
-        container = tk.Frame(self)
-        container.grid(row=1, column=0)
+        estilo_botao = {"font": FONTE_NORMAL, "bg": COR_BOTAO, "fg": COR_BOTAO_TXT, "activebackground": COR_PRIMARIA, "activeforeground": "#fff", "bd": 0, "relief": "flat", "width": 20, "height": 2, "cursor": "hand2"}
 
-        # Conteúdo centralizado dentro do container
-        rotulo_titulo = tk.Label(container, text="TechX", font=("Arial", 18, "bold"))
-        rotulo_titulo.pack(pady=10)
-
-        rotulo_texto = tk.Label(
-            container,
-            text="Bem-vindo ao Monitoramento de Máquinas da TechX,\npor favor efetue o login para continuar",
-            font=("Arial", 12),
-            wraplength=400,
-            justify="center"
-        )
-        rotulo_texto.pack(pady=15)
-
-        botao_cadastrar = tk.Button(
-            container,
-            text="Cadastrar",
-            font=("Arial", 12),
-            command=lambda: controller.mostrar_tela("TelaRegister")
-        )
-        botao_cadastrar.pack(pady=5)
-
-        botao_login = tk.Button(
-            container,
-            text="Login",
-            font=("Arial", 12),
-            command=lambda: controller.mostrar_tela("TelaLogin")
-        )
-        botao_login.pack(pady=5)
-
-        botao_sair = tk.Button(
-            container,
-            text="Sair",
-            font=("Arial", 12),
-            command=master.quit
-        )
-        botao_sair.pack(pady=5)
+        tk.Button(container, text="Entrar", command=lambda: controller.mostrar_tela("TelaLogin"), **estilo_botao).pack(pady=10)
+        tk.Button(container, text="Cadastrar", command=lambda: controller.mostrar_tela("TelaRegister"), **estilo_botao).pack(pady=10)
+        tk.Button(container, text="Sair", command=controller.destroy, **estilo_botao).pack(pady=10)
