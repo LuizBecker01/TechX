@@ -2,11 +2,18 @@
 import tkinter as tk
 import bcrypt
 
-def login_usuario(email, senha):
-    usuario = session.query(Usuario).filter_by(email=email).first()
-    if usuario and bcrypt.checkpw(senha.encode('utf-8'), usuario.senha.encode('utf-8')):
-        return True, "Login bem-sucedido!"
-    return False, "Email ou senha incorretos!"
+def verificar_login(email, senha):
+    # Aqui você faz a verificação do usuário e senha
+    if email == "admin" and senha == "123":
+        return True, "Login realizado com sucesso!"
+    else:
+        return False, "Email ou senha incorretos."
+
+def login_usuario():
+    email = entry_email.get()
+    senha = entry_senha.get()
+    sucesso, mensagem = verificar_login(email, senha)
+    tk.messagebox.showinfo("Resultado", mensagem)
 
 root = tk.Tk()
 root.title("Login de Usuário")
@@ -22,5 +29,8 @@ entry_senha.grid(row=2, column=1, padx=10, pady=5)
 
 btn_login = tk.Button(root, text="Entrar", command=login_usuario)
 btn_login.grid(row=3, column=0, columnspan=2, pady=10)
+
+btn_sair = tk.Button(root, text="Sair", command=root.quit)
+btn_sair.grid(row=4, column=0, columnspan=2, pady=10)
 
 root.mainloop()
