@@ -1,0 +1,3 @@
+{
+  "python.analysis.extraPaths": ["./monitoramento_maquinas/database"]
+}
