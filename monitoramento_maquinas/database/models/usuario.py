@@ -1,6 +1,6 @@
 # Model para autenticação
 from sqlalchemy import Column, Integer, String
-from monitoramento_maquinas.database.db_config import Base, Session
+from monitoramento_maquinas.database.db_config import Base
 
 class Usuario(Base):
     __tablename__ = 'usuarios'
@@ -18,7 +18,7 @@ class Usuario(Base):
     def __repr__(self):
         return f"Usuario(nome='{self.nome}', email='{self.email}')"
 
-def add_usuario(usuario: Usuario, session: Session) -> None:
+def add_usuario(usuario: Usuario, session) -> None:
     """Adiciona um novo usuário ao banco de dados."""
-    Session.add(usuario)
-    Session.commit()
+    session.add(usuario)
+    session.commit()
