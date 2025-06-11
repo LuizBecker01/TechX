@@ -1,7 +1,11 @@
 # Tela de login estilizada
 import tkinter as tk
-from tkinter import messagebox
 import bcrypt
+
+from tkinter import messagebox
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from .models import Usuario
 
 # Cores e fontes do sistema
 COR_PRIMARIA = "#005A3C"
@@ -14,19 +18,20 @@ FONTE_TITULO = ("Arial", 18, "bold")
 FONTE_LABEL = ("Arial", 12)
 FONTE_BOTAO = ("Arial", 12)
 
-def verificar_login(email, senha):
-    # Aqui você faz a verificação do usuário e senha
-    if email == "admin" and senha == "123":
-        return True, "Login realizado com sucesso!"
-    else:
-        return False, "Email ou senha incorretos."
+engine = create_engine('sqlite:///tx_sqlalchemy.db', echo=True)
+Session = sessionmaker(bind=engine)
 
 def login_usuario():
     email = entry_email.get()
     senha = entry_senha.get()
-    sucesso, mensagem = verificar_login(email, senha)
-    messagebox.showinfo("Resultado", mensagem)
-
+    session = Session()
+    usuario = session.query(Usuario).filter_by(email=email).first()
+    if usuario and bcrypt.checkpw(senha.encode('utf-8'), usuario.senha.encode('utf-8')):
+        messagebox.showinfo("Login", "Login realizado com sucesso!")
+    else:
+        messagebox.showerror("Erro", "Email ou senha incorretos. Tente novamente.")
+    session.close()
+    
 # Janela principal
 root = tk.Tk()
 root.title("Login de Usuário")
