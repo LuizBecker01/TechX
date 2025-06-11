@@ -1,11 +1,10 @@
 # Tela de login estilizada
 import tkinter as tk
 import bcrypt
-
 from tkinter import messagebox
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from .models import Usuario
+from models.Usuario import Usuario
 
 # Cores e fontes do sistema
 COR_PRIMARIA = "#005A3C"

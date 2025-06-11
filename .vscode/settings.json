@@ -1,3 +1,6 @@
 {
-  "python.analysis.extraPaths": ["./monitoramento_maquinas/database"]
+  "python.analysis.extraPaths": [
+    "./monitoramento_maquinas/database",
+    "./monitoramento_maquinas/database"
+  ]
 }
