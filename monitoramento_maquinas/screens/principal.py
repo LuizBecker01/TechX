@@ -4,11 +4,13 @@ import os
 
 def open_registration():
     # Função chamada ao clicar em "Cadastrar"
-    import register  # Importa a tela de cadastro
+    import screens.register  # Importa a tela de cadastro
+    screens.register.opens_register_window(root)
 
 def open_login():
     # Função chamada ao clicar em "Entrar"
-    import login  # Importa a tela de login
+    import screens.login  # Importa a tela de login
+    screens.login.open_login_window(root)
 
 def close_app():
     # Função chamada ao clicar em "Sair"
