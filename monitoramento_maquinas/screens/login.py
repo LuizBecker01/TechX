@@ -1,11 +1,15 @@
 # Tela de login estilizada
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import tkinter as tk
 import bcrypt
 from tkinter import messagebox
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from ..database.models.Usuario import Usuario
-
+from database.models.Usuario import Usuario
+from database.db_config import Base
 
 # Cores e fontes do sistema
 COR_PRIMARIA = "#005A3C"
@@ -31,7 +35,7 @@ def login_usuario():
     else:
         messagebox.showerror("Erro", "Email ou senha incorretos. Tente novamente.")
     session.close()
-    
+
 # Janela principal
 root = tk.Tk()
 root.title("Login de Usuário")
