@@ -4,7 +4,8 @@ import bcrypt
 from tkinter import messagebox
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from models.Usuario import Usuario
+from ..database.models.Usuario import Usuario
+
 
 # Cores e fontes do sistema
 COR_PRIMARIA = "#005A3C"

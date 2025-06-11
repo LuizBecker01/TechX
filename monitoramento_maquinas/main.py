@@ -1,4 +1,4 @@
 from screens.principal import root
-from screens import register, login, dashboard, historico
-
+from screens import register
+from screens import login
 root.mainloop()
